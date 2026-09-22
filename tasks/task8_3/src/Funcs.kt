@@ -6,6 +6,12 @@ import kotlin.io.path.forEachLine
 typealias Record = Pair<String,Double>
 
 fun fetchData(filename: String) = buildList {
+    Path(filename).forEachLine{
+        val parts = it.split(",")
+        val station = parts[0]
+        val temperature = parts[1].toDouble()
+        add(Record(station,temperature))
+    }
     // Finish the implementation of this function
 }
 
